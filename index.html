@@ -1838,5 +1838,14 @@ window.addEventListener('DOMContentLoaded', function () {
   renderTeam();
 });
 </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+  
+  // Replace these with your actual URL and Key from the Supabase API settings
+  const supabaseUrl = 'https://jyfsblnsasavauhbukbr.supabase.co/rest/v1/';
+  const supabaseKey = 'sb_publishable_kA3UsbwYM0dz1pMkg-wagg_lehkW5zD';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+</script>
 </body>
 </html>
