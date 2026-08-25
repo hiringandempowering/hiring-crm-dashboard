@@ -929,7 +929,21 @@ td { padding: 11px 14px; font-size: 13px; color: var(--ink-mid); vertical-align:
 
 /* ═══════════════════════ DATA ═══════════════════════ */
 
-const REQS = [
+let REQS = [];
+  async function fetchRequisitions() {
+  // This tells Supabase to select all columns (*) from the 'requisitions' table
+  const { data, error } = await supabase
+    .from('requisitions')
+    .select('*');
+
+  if (error) {
+    console.error("Error fetching data:", error);
+    return;
+  }
+
+  // Assign the live data to your REQS variable
+  REQS = data;
+}
 {id:"HE007",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JANINE",client:"SOUL MATTERS- VISIONARY TRADEMARK LAW",contact:"Frances Jones",role:"Digital Marketing Expert & Client Success",location:"TEXAS (Central)",setup:"REMOTE (PHI)"},
 {id:"HE026",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Associate Attorney",location:"Norcross, GA",setup:"OFFICE"},
 {id:"HE027",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Director of Operations",location:"Coral Gables, FL",setup:"OFFICE"},
@@ -1812,11 +1826,11 @@ function renderTeam() {
 
 /* ═══════════════════════ INIT ═══════════════════════ */
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', async function () {
   // populate recruiter dropdowns
   const names = Array.from(new Set(REQS.map(r => r.recruiter))).sort();
   ['f-rec', 'q-rec'].forEach(id => {
-    const sel = $(id);
+    const sel = document.getElementById(id);
     names.forEach(n => {
       const o = document.createElement('option');
       o.value = n; o.textContent = n;
@@ -1824,11 +1838,13 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Fetch live data from Supabase before rendering!
+  await fetchRequisitions();
+
   // nav counts
-  $('nav-count-reqs').textContent = REQS.length;
-  $('nav-count-hires').textContent = HIRES.length;
-  $('nav-count-clients').textContent = new Set(REQS.map(r => r.client)).size;
-  $('nav-count-onboard').textContent = OB.length;
+  document.getElementById('nav-count-reqs').textContent = REQS.length;
+  document.getElementById('nav-count-hires').textContent = HIRES.length;
+  // Note: you will need to update the other count elements here eventually too
 
   renderDash();
   renderReqs();
