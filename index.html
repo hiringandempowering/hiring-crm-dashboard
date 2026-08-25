@@ -1827,7 +1827,10 @@ function renderTeam() {
 /* ═══════════════════════ INIT ═══════════════════════ */
 
 window.addEventListener('DOMContentLoaded', async function () {
-  // populate recruiter dropdowns
+  // 1. Fetch live data FIRST!
+  await fetchRequisitions();
+
+  // 2. NOW populate recruiter dropdowns
   const names = Array.from(new Set(REQS.map(r => r.recruiter))).sort();
   ['f-rec', 'q-rec'].forEach(id => {
     const sel = document.getElementById(id);
@@ -1838,14 +1841,11 @@ window.addEventListener('DOMContentLoaded', async function () {
     });
   });
 
-  // Fetch live data from Supabase before rendering!
-  await fetchRequisitions();
-
-  // nav counts
+  // 3. Update counts
   document.getElementById('nav-count-reqs').textContent = REQS.length;
   document.getElementById('nav-count-hires').textContent = HIRES.length;
-  // Note: you will need to update the other count elements here eventually too
 
+  // 4. Render everything
   renderDash();
   renderReqs();
   renderKanban();
