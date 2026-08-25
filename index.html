@@ -924,13 +924,22 @@ td { padding: 11px 14px; font-size: 13px; color: var(--ink-mid); vertical-align:
   </div>
 </div>
 
+<!-- Paste the Supabase connection HERE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+  const supabaseUrl = 'https://jyfsblnsasavauhbukbr.supabase.co';
+  const supabaseKey = 'sb_publishable_kA3UsbwYM0dz1pMkg-wagg_lehkW5zD';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+</script>
+
+<!-- Your main dashboard script starts here -->
 <script>
 'use strict';
 
 /* ═══════════════════════ DATA ═══════════════════════ */
 
-let REQS = [];
-  async function fetchRequisitions() {
+let REQS = [];  async function fetchRequisitions() {
   // This tells Supabase to select all columns (*) from the 'requisitions' table
   const { data, error } = await supabase
     .from('requisitions')
@@ -944,113 +953,6 @@ let REQS = [];
   // Assign the live data to your REQS variable
   REQS = data;
 }
-{id:"HE007",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JANINE",client:"SOUL MATTERS- VISIONARY TRADEMARK LAW",contact:"Frances Jones",role:"Digital Marketing Expert & Client Success",location:"TEXAS (Central)",setup:"REMOTE (PHI)"},
-{id:"HE026",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Associate Attorney",location:"Norcross, GA",setup:"OFFICE"},
-{id:"HE027",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Director of Operations",location:"Coral Gables, FL",setup:"OFFICE"},
-{id:"HE023",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"FISHER LAW LLC",contact:"Linda Fisher",role:"Trust and Estate Attorney",location:"Norwood, MA",setup:"OFFICE"},
-{id:"HE001",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"MEL",client:"LAWVEX",contact:"Gary/Tisha",role:"Sr. Estate Planning Atty",location:"CALIFORNIA (Pacific)",setup:"REMOTE"},
-{id:"HE053",contract:"SMARTHIRE",status:"Cancelled",type:"REPLACEMENT",recruiter:"ELY",client:"BERG BRYANT ELDER LAW",contact:"Kellen Bryant",role:"Medicaid Paralegal",location:"Jacksonville, FL",setup:"OFFICE"},
-{id:"HE024",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"LORENZO LAW GROUP, LLC",contact:"Carlos Lorenzo",role:"Intake/Sales Specialist",location:"Orlando FL",setup:"OFFICE"},
-{id:"HE047",contract:"VIRTUSTAFF",status:"Paused",type:"NEW",recruiter:"CHELSEA",client:"SANTA BARBARA ESTATE PLANNING AND ELDER LAW",contact:"julianna@sbelderlaw.com",role:"Intake Specialist",location:"Santa Barbara, CA",setup:"REMOTE"},
-{id:"HE003",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"GRACE",client:"BRINGARDNER INJURY LAW FIRM",contact:"Mark Bringardner",role:"Attorney",location:"Charleston, SC",setup:"OFFICE"},
-{id:"HE017",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"THE LAW OFFICES OF JACQUELINE D. YU",contact:"Jacqueline Yu",role:"Legal Administrative Assistant",location:"CALIFORNIA (Pacific)",setup:"HYBRID"},
-{id:"HE057",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Associate Attorney (Plaintiff)",location:"Coral Gables, FL",setup:"OFFICE"},
-{id:"HE058",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"THE FELICETTI LAW FIRM PLLC",contact:"Scott Felicetti",role:"Director of Operations",location:"Coral Gables, FL",setup:"OFFICE"},
-{id:"HE048",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"GRACE",client:"SAPON IMMIGRATION",contact:"Janie Sapon",role:"Senior Associate Attorney-Employment Immigration",location:"Louisville, KY",setup:"HYBRID"},
-{id:"HE043",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"GRACE",client:"SLOVENSKY LAW PLLC",contact:"Devon Slovensky",role:"Family Law Attorney",location:"Roanoke, VA",setup:"HYBRID"},
-{id:"HE083",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"KRISTEL",client:"CHANDLER LAW, LLC",contact:"Douglas Chandler",role:"Associate Attorney",location:"Alpharetta, GA",setup:"OFFICE",hire:"Alexa Opdyke"},
-{id:"HE051",contract:"FINDER'S FEE",status:"Cancelled",type:"NEW",recruiter:"GRACE",client:"ESTAVILLO LAW",contact:"jason@estavillolaw.com",role:"Real Estate Litigation Attorney",location:"Newport Beach, CA",setup:"HYBRID"},
-{id:"HE046",contract:"FINDER'S FEE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"OLSEN & MAGNAN, LLP",contact:"Trevor Olsen",role:"Sr. Paralegal",location:"Los Gatos, CA",setup:"HYBRID"},
-{id:"HE071",contract:"VIRTUSTAFF",status:"Cancelled",type:"REPLACEMENT",recruiter:"GRACE",client:"TIMMEL ASSOCIATES, LLC",contact:"angela@timmellaw.com",role:"Social Media Marketing Coordinator",location:"New Albany, IN",setup:"REMOTE"},
-{id:"HE070",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"CHELSEA",client:"TITTLE AND PERLMUTER",contact:"Laura Antenucci",role:"Trial Attorney",location:"Cleveland OH",setup:"OFFICE"},
-{id:"HE104",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"REPLACEMENT",recruiter:"MARRO",client:"KING AND SIEGEL, LLP",contact:"julian@Kingsiegel.com",role:"Executive Assistant to Managing Partner",location:"Los Angeles, CA",setup:"REMOTE (PHI)"},
-{id:"HE081",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"CHELSEA",client:"JOINER LAW FIRM",contact:"Elizabeth Joiner",role:"Marketing Intern",location:"Pace, FL",setup:"HYBRID"},
-{id:"HE082",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"NEW",recruiter:"JANINE",client:"JANE MUIR",contact:"Jane Muir",role:"Paralegal VA",location:"Coral Gables, FL",setup:"REMOTE"},
-{id:"HE045",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"KRISTEL",client:"OLSEN FAMILY LAW",contact:"Trevor Olsen",role:"Sr. Associate",location:"Los Gatos, CA",setup:"HYBRID"},
-{id:"HE105",contract:"SMARTHIRE",status:"Paused",type:"REPLACEMENT",recruiter:"GRACE",client:"NEST LAW",contact:"Sara J. Saba",role:"Family Law Attorney",location:"Miami, FL",setup:"HYBRID"},
-{id:"HE076",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"GRACE",client:"HYLTON-RODIC LAW PLLC",contact:"Keisha Hylton-Rodic",role:"Associate Patent Attorney",location:"Washington, DC",setup:"OFFICE"},
-{id:"HE128",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"NEW",recruiter:"JENN",client:"JUNIPER LAW, PLLC",contact:"Bryn Karaus",role:"Virtual Assistant",location:"Alexandria, VA",setup:"REMOTE (PHI)"},
-{id:"HE113",contract:"VIRTUSTAFF (PHI)",status:"Cancelled",type:"NEW",recruiter:"JOY",client:"LAKHANI LEGAL PLLC",contact:"Shefali Lakhani",role:"US Paralegal",location:"New York, NY",setup:"REMOTE (PHI)"},
-{id:"HE036",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JANINE",client:"LAW OFFICE OF DEIDRA N. HAYNES",contact:"Deidra",role:"Family Law Attorney",location:"Indianapolis, IN",setup:"HYBRID"},
-{id:"HE075",contract:"SMARTHIRE",status:"Paused",type:"REPLACEMENT",recruiter:"JANINE",client:"LAW OFFICE OF DEIDRA N. HAYNES",contact:"Deidra",role:"Family Law Attorney",location:"Indianapolis, IN",setup:"HYBRID"},
-{id:"HE102",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"GRACE",client:"MCKENNA, RUSSO, LIVINGSTON, BURKETT & BURGY",contact:"Kelly Burgy",role:"Trust and Estate Administration Paralegal",location:"Annapolis, MD",setup:"OFFICE"},
-{id:"HE120",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"JOY",client:"CHANDLER LAW, LLC",contact:"Douglas Chandler",role:"Client Services & Sales Coordinator",location:"Alpharetta, GA",setup:"HYBRID"},
-{id:"HE141",contract:"FINDER'S FEE",status:"Cancelled",type:"NEW",recruiter:"JOY",client:"HIGH POINT LAW OFFICES",contact:"Peter Gilbert",role:"Attorney",location:"Chalfont, PA",setup:"HYBRID"},
-{id:"HE072",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"MARRO",client:"GRABER AND JOHNSON LAW GROUP, LLC",contact:"Gabe Hubbard",role:"Estate Planning Paralegal",location:"Manhattan, KS",setup:"OFFICE"},
-{id:"HE123",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"JENN",client:"BUTCHER ELDER LAW, LTD.",contact:"Samuel V. Butcher",role:"Community Outreach Coordinator",location:"Strongsville, OH",setup:"HYBRID"},
-{id:"HE090",contract:"VIRTUSTAFF (LATAM)",status:"Cancelled",type:"REPLACEMENT",recruiter:"JANINE",client:"LAW OFFICE OF ADELINA RUIZ PA",contact:"adelinaruiz@aruizlaw.com",role:"Client Services Coordinator (LATAM)",location:"Palm Beach Gardens, FL",setup:"REMOTE"},
-{id:"HE147",contract:"SMARTHIRE",status:"Paused",type:"REPLACEMENT",recruiter:"JENN",client:"BLUE MAHOE LAW",contact:"Ashleigh McKenzie",role:"Client Services Director",location:"Fort Lauderdale, FL",setup:"OFFICE"},
-{id:"HE104",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"REPLACEMENT",recruiter:"JANINE",client:"KING AND SIEGEL, LLP",contact:"Delilah Freytes",role:"Legal Secretary",location:"Los Angeles, CA",setup:"REMOTE (PHI)"},
-{id:"HE160",contract:"SMARTHIRE",status:"Cancelled",type:"NEW",recruiter:"JENN",client:"THE ESTATE PLANNING LAW GROUP",contact:"William Deitch",role:"Client Services Coordinator",location:"Wheaton, IL",setup:"OFFICE"},
-{id:"HE142",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"REPLACEMENT",recruiter:"ANDREA",client:"HAYDEN ADAMS LAW, APC",contact:"Hadams",role:"Client Services Director",location:"Beverly Hills, CA",setup:"REMOTE (PHI)"},
-{id:"HE157",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JENN",client:"COMMONWEALTH ISLAND SERVICES LLC",contact:"Louie Lee",role:"Firm Administrator",location:"Vienna, VA",setup:"OFFICE"},
-{id:"HE148",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JENN",client:"BLUE MAHOE LAW",contact:"Ashleigh McKenzie",role:"Attorney (Estate Planning)",location:"Fort Lauderdale, FL",setup:"OFFICE"},
-{id:"HE146",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"REPLACEMENT",recruiter:"ANDREA",client:"BLUE MAHOE LAW",contact:"Ashleigh McKenzie",role:"Executive Assistant",location:"Fort Lauderdale, FL",setup:"REMOTE (PHI)"},
-{id:"HE109",contract:"SMARTHIRE",status:"Cancelled",type:"REPLACEMENT",recruiter:"JANINE",client:"HIGH POINT LAW OFFICES PC",contact:"Peter Gilbert",role:"Attorney",location:"Chalfont, PA",setup:"HYBRID"},
-{id:"HE158",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"JENN",client:"ROMANO LAW GROUP",contact:"John and Nancy",role:"Trial Attorney",location:"West Palm Beach, FL",setup:"HYBRID"},
-{id:"HE100",contract:"SMARTHIRE",status:"Paused",type:"REPLACEMENT",recruiter:"JENN",client:"DAVID FOGEL, PC",contact:"David",role:"Commercial Litigation Associate Attorney",location:"Garden City, NY",setup:"HYBRID"},
-{id:"HE118",contract:"FINDER'S FEE",status:"Cancelled",type:"NEW",recruiter:"ANDREA",client:"NEW LEAF FAMILY",contact:"Luisa Castro",role:"Family Law Paralegal (fully remote)",location:"Golden, CO",setup:"REMOTE",hire:"JULIANA RAE GARCIA"},
-{id:"HE135",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"ANDREA",client:"CHANDLER LAW, LLC",contact:"Douglas Chandler",role:"Paralegal",location:"Alpharetta, GA",setup:"HYBRID"},
-{id:"HE151",contract:"VIRTUSTAFF (PHI)",status:"Cancelled",type:"NEW",recruiter:"ANDREA",client:"KILGORE AND SMITH, LLC",contact:"Leila Kilgore",role:"Virtual Paralegal",location:"Fredericksburg, VA",setup:"REMOTE (PHI)",hire:"JOHN REV CATAN"},
-{id:"HE108",contract:"SMARTHIRE",status:"Paused",type:"REPLACEMENT",recruiter:"JANINE",client:"JANE MUIR & ASSOCIATES",contact:"Jane Muir",role:"Sr. Litigation Attorney",location:"Coral Gables, FL",setup:"REMOTE"},
-{id:"HE169",contract:"FINDER'S FEE",status:"Closed",type:"NEW",recruiter:"GRACE",client:"MAISON LAW",contact:"martin@maisonlaw.com",role:"COO/PLA",location:"Glendale, CA",setup:"OFFICE",hire:"SUNITA PERSAUD"},
-{id:"HE116",contract:"SMARTHIRE",status:"Closed",type:"REPLACEMENT",recruiter:"GRACE",client:"NAUREEN F. HYDER PLLC",contact:"Naureen",role:"Business Immigration Attorney",location:"Richmond, VA",setup:"REMOTE"},
-{id:"HE172",contract:"VIRTUSTAFF (PHI)",status:"Paused",type:"NEW",recruiter:"JANINE",client:"DOUG GASTON ATTORNEY AT LAW",contact:"Doug",role:"US Legal VA",location:"Houston, MO",setup:"REMOTE (PHI)"},
-{id:"HE182",contract:"SMARTHIRE",status:"Paused",type:"NEW",recruiter:"GRACE",client:"MCKARCHIR LAW, PLLC",contact:"Joshua McKarcher",role:"Attorney",location:"Clarkston, WA",setup:"HYBRID"},
-{id:"HE013",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"MARRO",client:"MAISON LAW",contact:"martin@maisonlaw.com",role:"Personal Injury Lawyer",location:"Glendale, CA",setup:"HYBRID",hire:"Jessop Stroman"},
-{id:"HE029",contract:"SMARTHIRE",status:"Completed",type:"REPLACEMENT",recruiter:"MEL",client:"DUNN LAW",contact:"Michael Dunn",role:"Law Firm Administrator/Office Manager",location:"FLORIDA",setup:"REMOTE",hire:"Maritel Camilo"},
-{id:"HE006",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"CHELSEA",client:"LAW OFFICE OF CHRIS SCHMIEDEKE, PC",contact:"chris@chrislawyer.com",role:"Attorney",location:"TEXAS (Central)",setup:"HYBRID",hire:"Kyra Key"},
-{id:"HE016",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"LAW OFFICE OF THOMAS M. MISTELI, P.C.",contact:"Tom Misteli",role:"Real Estate and Probate Attorney",location:"DALLAS",setup:"HYBRID",hire:"Austin Ernst"},
-{id:"HE050",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"NEST LAW",contact:"Sara",role:"Marital and Family Law Attorney",location:"Miami, FL",setup:"HYBRID",hire:"Lilly Real"},
-{id:"HE049",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"KRISTEL",client:"SILVERLEAF LEGAL GROUP, PLLC",contact:"Thomas",role:"Senior Real Estate Attorney",location:"Cedar Park, TX",setup:"HYBRID",hire:"Dewey Day"},
-{id:"HE065",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"AIRINGTON LAW",contact:"mairington@airingtonlaw.com",role:"Associate Attorney",location:"Glen Allen, VA",setup:"OFFICE",hire:"CLAUDIA ESTRADA TAVARA"},
-{id:"HE089",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"MARRO",client:"HORACIO SOSA, P.A.",contact:"Horacio Sosa",role:"Intake Specialist",location:"Davie, FL",setup:"OFFICE",hire:"LEONELA ANDERSON"},
-{id:"HE096",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"KRISTEL",client:"POSTERNOCK APELL, PC",contact:"Dan Posternock",role:"Director of Administration / Office Manager",location:"Moorestown, NJ",setup:"OFFICE",hire:"CHRISTINE CUNNINGHAM"},
-{id:"HE098",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JOY",client:"PROVET LEGAL",contact:"Rebecca",role:"Intake Coordinator",location:"St. Petersburg, FL",setup:"HYBRID",hire:"ALLISON YOUNG"},
-{id:"HE112",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JOY",client:"SYKES ELDER LAW, LLC",contact:"Andy Sykes",role:"Client Support Specialist",location:"Pittsburgh, PA",setup:"OFFICE",hire:"MARY CONN"},
-{id:"HE119",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JANINE",client:"CREENAN & BACZKOWSKI, PC",contact:"James Creenan",role:"Paralegal",location:"Murrysville, PA",setup:"OFFICE",hire:"SHANNON HUBBLE"},
-{id:"HE109",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JANINE",client:"HIGH POINT LAW OFFICES PC",contact:"Peter Gilbert",role:"Attorney",location:"Chalfont, PA",setup:"HYBRID",hire:"BRIAN DONOVAN"},
-{id:"HE114",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"ANDREA",client:"LAW OFFICE OF RUBY STEINBRECHER",contact:"ruby@lawofficeofruby.com",role:"Client Services Director",location:"Sebastopol, CA",setup:"OFFICE",hire:"SANDRO ALDANA"},
-{id:"HE117",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"MARRO",client:"LAW OFFICE OF LASHAWNDA D. CONNER, LLC",contact:"LaShawnda",role:"Client Service Director",location:"Atlanta, GA",setup:"HYBRID",hire:"SHELBY NARED"},
-{id:"HE122",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JOY",client:"NEW LEAF FAMILY",contact:"Luisa Castro",role:"Family Law Attorney",location:"Golden, CO",setup:"REMOTE",hire:"JOSEPH HINSON"},
-{id:"HE137",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"EADIE LAW",contact:"william.eadie@eadielaw.com",role:"Litigation Attorney",location:"Cleveland, Ohio",setup:"REMOTE",hire:"SHAYNALEA BRAUN"},
-{id:"HE132",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"ANDREA",client:"LISA CLORE, LLC",contact:"lisa@lisaclore.com",role:"Associate Attorney",location:"Greenwood Village, CO",setup:"HYBRID",hire:"KLAUDIA BEUTLER"},
-{id:"HE147",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JENN",client:"BLUE MAHOE LAW",contact:"Ashleigh McKenzie",role:"Client Services Director",location:"Fort Lauderdale, FL",setup:"OFFICE",hire:"ALEJANDRA MEZA RODRIGUEZ"},
-{id:"HE153",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JANINE",client:"BEACON DISABILITY, PLLC",contact:"Kaitlin Wildoner",role:"Associate Disability Attorney",location:"Ponte Vedra, FL",setup:"REMOTE",hire:"JEREMY HAYS"},
-{id:"HE154",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"ROMANO LAW GROUP",contact:"John and Nancy",role:"Mass Tort Paralegal",location:"West Palm Beach, FL",setup:"REMOTE",hire:"ENID ONARZA"},
-{id:"HE154",contract:"SMARTHIRE",status:"Completed",type:"REPLACEMENT",recruiter:"GRACE",client:"ROMANO LAW GROUP",contact:"John and Nancy",role:"Mass Tort Paralegal",location:"West Palm Beach, FL",setup:"REMOTE",hire:"MARISOL GUERRA"},
-{id:"HE165",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"POLITICAL ASYLUM LAWYERS",contact:"Brian Manning",role:"Immigration Attorney",location:"Houston, TX",setup:"REMOTE",hire:"HEIDI BOAS"},
-{id:"HE170",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JENN",client:"THE LEGAL DEPARTMENT",contact:"laurie@thelegaldepartment.law",role:"Client Services Coordinator",location:"Jacksonville, FL",setup:"HYBRID",hire:"AVERY WHITE"},
-{id:"HE093",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"JANINE",client:"MAISON LAW",contact:"martin@maisonlaw.com",role:"PreLitigation / Litigation Attorney",location:"Glendale, CA",setup:"HYBRID",hire:"GLADYS HERNANDEZ"},
-{id:"HE184",contract:"SMARTHIRE",status:"Completed",type:"NEW",recruiter:"GRACE",client:"POLITICAL ASYLUM LAWYERS",contact:"Brian",role:"Immigration Attorney (Representation)",location:"Houston, TX",setup:"REMOTE",hire:"Areege Shalabi"},
-{id:"HE138",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"ANDREA",client:"BRUNDO LAW, APC",contact:"Ron Chang",role:"Workers' Compensation Attorney",location:"Irvine, CA",setup:"REMOTE"},
-{id:"HE063",contract:"SMARTHIRE",status:"Open",type:"REPLACEMENT",recruiter:"GRACE",client:"ESTAVILLO LAW",contact:"jason@estavillolaw.com",role:"Director of Legal Operations",location:"Oakland, CA",setup:"OFFICE"},
-{id:"HE155",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JANINE",client:"THE MADDOX LAW FIRM",contact:"Matthew",role:"Associate Attorney",location:"Norwalk, CT",setup:"OFFICE"},
-{id:"HE167",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JENN",client:"LEPORE TAYLOR FOX",contact:"",role:"Corporate Immigration Paralegal",location:"Livingston, NJ",setup:"HYBRID"},
-{id:"HE175",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JENN",client:"INHULSEN LAW",contact:"John Inhulsen",role:"Paralegal or Legal Assistant",location:"Grand Rapids, MI",setup:"OFFICE"},
-{id:"HE176",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JANINE",client:"BEST INTEREST FAMILY LAW FIRM, LLC",contact:"Samer Bandak",role:"Family Law Attorney",location:"Castle Rock, CO",setup:"REMOTE"},
-{id:"HE130",contract:"SMARTHIRE",status:"Open",type:"REPLACEMENT",recruiter:"JENN",client:"THE ROOTH LAW FIRM",contact:"rjr@roothlawfirm.com",role:"Legal Assistant",location:"Evanston, IL",setup:"OFFICE"},
-{id:"HE178",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"BERKSHIRE LAW GROUP",contact:"Kelly Kennedy",role:"EP/Elder Law Attorney",location:"Lenox, MA",setup:"OFFICE"},
-{id:"HE179",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"ANDREA",client:"SOTO LAW GROUP",contact:"DeDe Soto",role:"Associate Attorney",location:"Newport Beach, CA",setup:"OFFICE"},
-{id:"HE180",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JENN",client:"EMERY LAW OFFICE",contact:"Melissa Emery",role:"PI Case Manager/Paralegal",location:"Louisville, KY",setup:"OFFICE"},
-{id:"HE181",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"ANDREA",client:"HARRIS, KARSTAEDT, JAMISON & POWERS, PC",contact:"Sarah",role:"Sr. Litigation Attorney",location:"Englewood CO",setup:"OFFICE"},
-{id:"HE185",contract:"FINDER'S FEE",status:"Open",type:"NEW",recruiter:"ANDREA",client:"POLITICAL ASYLUM LAWYERS",contact:"Brian",role:"Immigration Attorney (Drafting)",location:"Houston, TX",setup:"REMOTE"},
-{id:"HE143",contract:"SMARTHIRE",status:"Open",type:"REPLACEMENT",recruiter:"JANINE",client:"MAGAZINER LAW, PA",contact:"Gavin Magaziner",role:"Litigation Associate Attorney – Construction Law",location:"Clearwater, FL",setup:"HYBRID"},
-{id:"HE187",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"VOLPE LAW",contact:"Benjamin Volpe",role:"Attorney",location:"Parker, CO",setup:"HYBRID"},
-{id:"HE188",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JANINE",client:"EMILY R TAYLOR PLLC",contact:"ert@emilytaylorlaw.com",role:"Associate Attorney",location:"Phoenix, AZ",setup:"OFFICE"},
-{id:"HE095",contract:"SMARTHIRE",status:"Open",type:"REPLACEMENT",recruiter:"ANDREA",client:"CASIANO LAW FIRM",contact:"Vin@CasianoLaw.com",role:"Probate and Trust Paralegal",location:"San Diego, CA",setup:"REMOTE"},
-{id:"HE189",contract:"VIRTUSTAFF (LATAM)",status:"Open",type:"NEW",recruiter:"JANINE",client:"THE KEVIN ETZKORN LAW GROUP, LLC",contact:"Kevin Etzkorn",role:"Virtual Assistant (Marketing)",location:"Clayton, MO",setup:"REMOTE (PHI)"},
-{id:"HE190",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"MARKERY LAW",contact:"Stacey Watson",role:"Sr. Attorney/ Of Counsel",location:"Washington, DC",setup:"REMOTE"},
-{id:"HE191",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JANINE",client:"BLUEBIRD LAW, PLLC",contact:"Ariel",role:"Director of Operations",location:"Billings, MT",setup:"OFFICE"},
-{id:"HE192",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"BOLTON LAW",contact:"ruby@boltonlaw.com",role:"Family Law Attorney",location:"The Woodlands, TX",setup:"HYBRID"},
-{id:"HE193",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"JENN",client:"THE LEGAL DEPARTMENT",contact:"laurie@thelegaldepartment.law",role:"Business Contract Attorney",location:"Jacksonville, FL",setup:"HYBRID"},
-{id:"HE099",contract:"SMARTHIRE",status:"Open",type:"REPLACEMENT",recruiter:"JENN",client:"DAVID FOGEL, PC",contact:"David",role:"Commercial Litigation Paralegal",location:"Garden City, NY",setup:"OFFICE"},
-{id:"HE193",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"BYRD CAMPBELL P.A.",contact:"Lesley Liarikos",role:"Sr. Commercial Litigation Attorney",location:"",setup:""},
-{id:"HE194",contract:"SMARTHIRE",status:"Open",type:"NEW",recruiter:"GRACE",client:"ENLIVEN LAW",contact:"Alexa Tetzlaff",role:"Client Services Director",location:"",setup:""},
-{id:"HE171",contract:"VIRTUSTAFF (LATAM)",status:"Open",type:"REPLACEMENT",recruiter:"JANINE",client:"LAW OFFICE OF ADELINA RUIZ PA",contact:"adelinaruiz@aruizlaw.com",role:"Solutions Advisor",location:"Palm Beach Gardens, FL",setup:"REMOTE (LATAM)"},
-{id:"HE195",contract:"VIRTUSTAFF",status:"Open",type:"REPLACEMENT",recruiter:"ANDREA",client:"SMYLIE LEGACY LAW",contact:"scott@smylielegacylaw.com",role:"Legal VA",location:"",setup:""},
-{id:"HE168",contract:"VIRTUSTAFF (PHI)",status:"For Job Offer",type:"NEW",recruiter:"ANDREA",client:"DEPRIMA LAW, PC",contact:"Gina M Wertman",role:"Legal VA",location:"Amherst NY",setup:"REMOTE (PHI)"},
-{id:"HE186",contract:"VIRTUSTAFF (LATAM)",status:"For Job Offer",type:"NEW",recruiter:"JENN",client:"LAW OFFICE OF EMILY HESTER",contact:"emily@emilyhesterlaw.com",role:"Virtual Assistant",location:"Cardiff by the Sea, CA",setup:"REMOTE (LATAM)"}
 ];
 
 const HIRES = [
@@ -1853,15 +1755,8 @@ window.addEventListener('DOMContentLoaded', async function () {
   renderOnboard();
   renderTeam();
 });
+
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const { createClient } = supabase;
   
-  // Replace these with your actual URL and Key from the Supabase API settings
-  const supabaseUrl = 'https://jyfsblnsasavauhbukbr.supabase.co/rest/v1/';
-  const supabaseKey = 'sb_publishable_kA3UsbwYM0dz1pMkg-wagg_lehkW5zD';
-  const supabase = createClient(supabaseUrl, supabaseKey);
-</script>
 </body>
 </html>
